@@ -1,6 +1,6 @@
 # SEO Indexing Fix — Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** Google'ın tüm 207 sayfayı doğru şekilde bulmasını, crawl etmesini ve indexlemesini sağlamak.
 
@@ -60,7 +60,7 @@ fixmytyrenowcom/
 
 **Sorun:** `Sitemap: https://fixmytyrenow.com/wp-sitemap.xml` mevcut değil. Cloudflare managed blok gereksiz uzun. `Disallow: /wp-admin/` statik sitede anlamsız.
 
-- [ ] **Step 1: robots.txt'yi yeniden yaz**
+- [x] **Step 1: robots.txt'yi yeniden yaz**
 
 ```
 User-agent: *
@@ -74,11 +74,11 @@ Sitemap: https://fixmytyrenow.com/sitemap.xml
 > Not: `booking/` ve `franchise-registration/` hem `noindex` hem `Disallow` alacak (Task 4).
 > Cloudflare managed blok kaldırılıyor — statik sunucuda Cloudflare yönetmez.
 
-- [ ] **Step 2: Değişikliği doğrula**
+- [x] **Step 2: Değişikliği doğrula**
 
 Dosyayı aç, içeriğin doğru olduğunu kontrol et.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add robots.txt
@@ -99,7 +99,7 @@ git push
 - `booking/` sitemap'te olmamalı (noindex sayfalar sitemap'e dahil edilmez)
 - `privacy-policy/` ve `terms/` de sitemap'ten çıkmalı (noindex olacaklar)
 
-- [ ] **Step 1: Python scripti ile sitemap oluştur**
+- [x] **Step 1: Python scripti ile sitemap oluştur**
 
 `generate_sitemap.py` dosyasını oluştur:
 
@@ -192,7 +192,7 @@ with open(sitemap_path, 'w', encoding='utf-8') as f:
 print(f'sitemap.xml olusturuldu: {len(urls)} URL')
 ```
 
-- [ ] **Step 2: Scripti calistir**
+- [x] **Step 2: Scripti calistir**
 
 ```bash
 cd fixmytyrenowcom
@@ -201,7 +201,7 @@ python generate_sitemap.py
 
 Beklenen çıktı: `sitemap.xml olusturuldu: 203 URL` (207 - booking - franchise - privacy - terms = 203)
 
-- [ ] **Step 3: Doğrula**
+- [x] **Step 3: Doğrula**
 
 ```bash
 grep -c "<loc>" sitemap.xml
@@ -210,7 +210,7 @@ grep "booking" sitemap.xml                 # boş çıkmalı
 grep "lastmod" sitemap.xml | head -3       # tüm satırlarda olmalı
 ```
 
-- [ ] **Step 4: Scripti sil ve commit**
+- [x] **Step 4: Scripti sil ve commit**
 
 ```bash
 rm generate_sitemap.py
@@ -228,7 +228,7 @@ git push
 
 **Sorun:** Tüm sayfalarda OG image ve schema JSON-LD `wp-content/themes/FixMyTyreNow/` kullanıyor ama dosyalar `wp-content/themes/FixMyTyreNow_edit/` içinde. Broken image = sosyal paylaşım önizlemesi yok.
 
-- [ ] **Step 1: fix_image_paths.py oluştur**
+- [x] **Step 1: fix_image_paths.py oluştur**
 
 ```python
 #!/usr/bin/env python3
@@ -258,13 +258,13 @@ for fpath in sorted(set(files)):
 print(f'{cleaned} dosya guncellendi.')
 ```
 
-- [ ] **Step 2: Calistir**
+- [x] **Step 2: Calistir**
 
 ```bash
 python fix_image_paths.py
 ```
 
-- [ ] **Step 3: Doğrula**
+- [x] **Step 3: Doğrula**
 
 ```bash
 grep -r "themes/FixMyTyreNow/" fixmytyrenowcom --include="index.html" --exclude-dir=wp-content | wc -l
@@ -273,7 +273,7 @@ grep "og:image" fixmytyrenowcom/index.html
 # FixMyTyreNow_edit göstermeli
 ```
 
-- [ ] **Step 4: Sil ve commit**
+- [x] **Step 4: Sil ve commit**
 
 ```bash
 rm fix_image_paths.py
@@ -291,7 +291,7 @@ git push
 
 **Sorun:** Rezervasyon formu ve yasal sayfalar arama sonuçlarına giriyor, crawl bütçesi boşa harcanıyor.
 
-- [ ] **Step 1: 4 dosyada robots meta'yı güncelle**
+- [x] **Step 1: 4 dosyada robots meta'yı güncelle**
 
 Her dosyada bu satırı bul:
 ```html
@@ -305,7 +305,7 @@ Her dosyada bu satırı bul:
 
 4 dosya: `booking/index.html`, `franchise-registration/index.html`, `privacy-policy/index.html`, `terms/index.html`
 
-- [ ] **Step 2: Doğrula**
+- [x] **Step 2: Doğrula**
 
 ```bash
 grep "robots" fixmytyrenowcom/booking/index.html
@@ -313,7 +313,7 @@ grep "robots" fixmytyrenowcom/franchise-registration/index.html
 # Her ikisi de noindex,nofollow göstermeli
 ```
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add booking/index.html franchise-registration/index.html privacy-policy/index.html terms/index.html
@@ -337,7 +337,7 @@ git push
 - `/areas/barnet/` → `Home > Areas > Barnet`
 - `/areas/barnet/standard-tyre-fitting/` → `Home > Areas > Barnet > Standard Tyre Fitting`
 
-- [ ] **Step 1: add_breadcrumbs.py oluştur**
+- [x] **Step 1: add_breadcrumbs.py oluştur**
 
 ```python
 #!/usr/bin/env python3
@@ -426,7 +426,7 @@ for fpath in sorted(set(files)):
 print(f'{updated} sayfaya BreadcrumbList schema eklendi.')
 ```
 
-- [ ] **Step 2: Calistir**
+- [x] **Step 2: Calistir**
 
 ```bash
 python add_breadcrumbs.py
@@ -434,7 +434,7 @@ python add_breadcrumbs.py
 
 Beklenen: `206 sayfaya BreadcrumbList schema eklendi.`
 
-- [ ] **Step 3: Doğrula**
+- [x] **Step 3: Doğrula**
 
 ```bash
 # services/standard-tyre-fitting/ kontrolu
@@ -463,7 +463,7 @@ Beklenen çıktı:
 }
 ```
 
-- [ ] **Step 4: Sil ve commit**
+- [x] **Step 4: Sil ve commit**
 
 ```bash
 rm add_breadcrumbs.py
@@ -481,7 +481,7 @@ git push
 
 **Sorun:** Bazı sayfalarda hâlâ `menu-item-type-custom`, `menu-item-object-custom`, `menu-item-home` class'ları ve `id='fmtn-main-css'` attribute'u var.
 
-- [ ] **Step 1: cleanup_remaining_wp.py oluştur**
+- [x] **Step 1: cleanup_remaining_wp.py oluştur**
 
 ```python
 #!/usr/bin/env python3
@@ -522,7 +522,7 @@ for fpath in sorted(set(files)):
 print(f'{cleaned} dosya temizlendi.')
 ```
 
-- [ ] **Step 2: Calistir ve doğrula**
+- [x] **Step 2: Calistir ve doğrula**
 
 ```bash
 python cleanup_remaining_wp.py
@@ -530,7 +530,7 @@ grep -r "menu-item-type-custom" fixmytyrenowcom --include="index.html" --exclude
 # 0 çıkmalı
 ```
 
-- [ ] **Step 3: Sil ve commit**
+- [x] **Step 3: Sil ve commit**
 
 ```bash
 rm cleanup_remaining_wp.py
@@ -548,7 +548,7 @@ git push
 
 **Sorun:** Ana sayfa `WebSite` schema'sı yok. Bu schema Google'ın site-links arama kutusunu (SearchAction) tanıması için önemli.
 
-- [ ] **Step 1: index.html'de `</head>` den önce ekle**
+- [x] **Step 1: index.html'de `</head>` den önce ekle**
 
 Mevcut JSON-LD bloklarının hemen ardından, `</head>`'den önce:
 
@@ -556,13 +556,13 @@ Mevcut JSON-LD bloklarının hemen ardından, `</head>`'den önce:
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"FixMyTyreNow","url":"https://fixmytyrenow.com","description":"London's fastest mobile tyre fitting service. 20-minute arrival across all 32 boroughs.","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://fixmytyrenow.com/?s={search_term_string}"},"query-input":"required name=search_term_string"}}</script>
 ```
 
-- [ ] **Step 2: Doğrula**
+- [x] **Step 2: Doğrula**
 
 ```bash
 grep "WebSite" fixmytyrenowcom/index.html
 ```
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add index.html
@@ -579,7 +579,7 @@ git push
 
 **Sorun:** `<link rel='stylesheet' id='fmtn-main-css' ... media='all'>` — `id` ve `media='all'` WP kalıntısı. `media='all'` render-blocking için gereksiz (default zaten `all`).
 
-- [ ] **Step 1: Python ile toplu temizle**
+- [x] **Step 1: Python ile toplu temizle**
 
 ```python
 #!/usr/bin/env python3
@@ -604,7 +604,7 @@ for fpath in sorted(set(files)):
 print(f'{n} guncellendi')
 ```
 
-- [ ] **Step 2: Calistir, doğrula, commit**
+- [x] **Step 2: Calistir, doğrula, commit**
 
 ```bash
 python fix_css_attrs.py
@@ -621,11 +621,11 @@ git push
 
 **Bu task manuel — yazılım değil.**
 
-- [ ] **Step 1:** Google Search Console → `fixmytyrenow.com` property aç
-- [ ] **Step 2:** Sol menü → `Sitemaps`
-- [ ] **Step 3:** `https://fixmytyrenow.com/sitemap.xml` gir → `Submit`
-- [ ] **Step 4:** Eski `wp-sitemap.xml` varsa sil (Remove butonuyla)
-- [ ] **Step 5:** URL Inspection tool ile `https://fixmytyrenow.com/` test et → `Request Indexing`
+- [x] **Step 1:** Google Search Console → `fixmytyrenow.com` property aç
+- [x] **Step 2:** Sol menü → `Sitemaps`
+- [x] **Step 3:** `https://fixmytyrenow.com/sitemap.xml` gir → `Submit`
+- [x] **Step 4:** Eski `wp-sitemap.xml` varsa sil (Remove butonuyla)
+- [x] **Step 5:** URL Inspection tool ile `https://fixmytyrenow.com/` test et → `Request Indexing`
 
 ---
 
