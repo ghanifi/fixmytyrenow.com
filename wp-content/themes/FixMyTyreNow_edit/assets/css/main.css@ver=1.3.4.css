@@ -3457,3 +3457,162 @@ a.cic-link:hover { text-decoration: underline; }
 @media (max-width: 400px) {
   .freg-services { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ========== LOCATION PAGE: NEW SECTIONS ========== */
+
+/* Common Tyre Emergencies */
+.location-emergencies {
+  margin: 40px 0 0;
+}
+.location-emergencies > h2 {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -.5px;
+  color: var(--dark);
+  margin-bottom: 20px;
+}
+.emergency-item {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-left: 4px solid var(--orange);
+  border-radius: 0 14px 14px 0;
+  padding: 22px 26px;
+  margin-bottom: 12px;
+  transition: box-shadow .2s;
+}
+.emergency-item:hover {
+  box-shadow: 0 4px 20px rgba(255,106,0,.10);
+}
+.emergency-item h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+.emergency-item p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: #444;
+  margin: 0;
+}
+
+/* Trust & Review section */
+.location-trust {
+  margin: 40px 0 0;
+  background: var(--dark);
+  border-radius: 18px;
+  padding: 36px 40px;
+  color: #fff;
+}
+.trust-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.trust-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 16px 12px;
+  background: rgba(255,255,255,.08);
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.12);
+}
+.trust-stat strong {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--orange);
+  letter-spacing: -.5px;
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+.trust-stat span {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255,255,255,.65);
+  letter-spacing: .3px;
+}
+.location-review {
+  border-left: 3px solid var(--orange);
+  padding: 0 0 0 20px;
+  margin: 0;
+}
+.location-review p {
+  font-size: 17px;
+  line-height: 1.75;
+  color: rgba(255,255,255,.9);
+  font-style: italic;
+  margin-bottom: 8px;
+}
+.location-review cite {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,.55);
+  font-style: normal;
+  letter-spacing: .2px;
+}
+
+/* location-faq — mirrors borough-faq style */
+.location-faq {
+  margin: 40px 0 0;
+}
+.location-faq > h2 {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -.5px;
+  color: var(--dark);
+  margin-bottom: 20px;
+}
+.location-faq .faq-item {
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 8px;
+  overflow: hidden;
+  transition: border-color .2s;
+}
+.location-faq .faq-item[open] {
+  border-color: var(--orange);
+}
+.location-faq summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+  color: var(--dark);
+  transition: background .15s;
+}
+.location-faq summary:hover { background: var(--bg-alt); }
+.location-faq summary::-webkit-details-marker { display: none; }
+.location-faq summary::after {
+  content: '+';
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--orange);
+  flex-shrink: 0;
+  margin-left: 14px;
+  transition: transform .2s;
+}
+.location-faq .faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+.location-faq details p {
+  padding: 0 22px 20px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .location-trust { padding: 28px 20px; }
+  .trust-stats { grid-template-columns: repeat(2, 1fr); }
+  .location-emergencies > h2,
+  .location-faq > h2 { font-size: 22px; }
+  .emergency-item { padding: 18px 18px; }
+}
