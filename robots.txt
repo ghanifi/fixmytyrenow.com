@@ -1,6 +1,25 @@
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Disallow: /
+
 User-agent: *
 Allow: /
 Disallow: /booking/
 Disallow: /franchise-registration/
+Disallow: /wp-json/
 
 Sitemap: https://fixmytyrenow.com/sitemap.xml
