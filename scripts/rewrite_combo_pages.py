@@ -10,7 +10,7 @@ Rules:
 - Real local context per borough.
 - FAQs answer genuine questions people search for.
 """
-import glob, re, os, sys, random
+import glob, re, os, sys, random, json
 sys.stdout.reconfigure(encoding='utf-8')
 os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -22,7 +22,7 @@ BOROUGHS = [
         'area1': 'Barking town centre', 'area2': 'Becontree',
         'area3': 'Dagenham', 'area4': 'Chadwell Heath',
         'vehicle': 'vans and commercial vehicles', 'tmpl': 0,
-        'pc': ['RM6', 'RM8', 'RM9', 'RM10'],
+        'pc': ['IG11', 'RM6', 'RM8', 'RM9', 'RM10', 'RM12'],
         'lid': 57,
     }),
     ('barnet', {
@@ -31,7 +31,7 @@ BOROUGHS = [
         'area1': 'High Barnet', 'area2': 'Finchley',
         'area3': 'Whetstone', 'area4': 'New Barnet',
         'vehicle': 'family saloons and SUVs', 'tmpl': 5,
-        'pc': ['EN4', 'EN5', 'N2', 'N3', 'N11'],
+        'pc': ['EN4', 'EN5', 'EN6', 'N2', 'N3', 'N11'],
         'lid': 63,
     }),
     ('bexley', {
@@ -40,7 +40,7 @@ BOROUGHS = [
         'area1': 'Bexleyheath', 'area2': 'Sidcup',
         'area3': 'Erith', 'area4': 'Welling',
         'vehicle': 'family cars and MPVs', 'tmpl': 4,
-        'pc': ['DA5', 'DA6', 'DA7', 'DA15', 'DA16'],
+        'pc': ['DA1', 'DA5', 'DA6', 'DA7', 'DA8', 'DA14', 'DA15', 'DA16', 'SE2'],
         'lid': 55,
     }),
     ('brent', {
@@ -49,7 +49,7 @@ BOROUGHS = [
         'area1': 'Wembley', 'area2': 'Harlesden',
         'area3': 'Kilburn', 'area4': 'Neasden',
         'vehicle': 'cars and vans', 'tmpl': 2,
-        'pc': ['NW2', 'NW9', 'NW10'],
+        'pc': ['HA0', 'HA9', 'NW2', 'NW6', 'NW9', 'NW10'],
         'lid': 44,
     }),
     ('bromley', {
@@ -58,7 +58,7 @@ BOROUGHS = [
         'area1': 'Bromley town centre', 'area2': 'Beckenham',
         'area3': 'Orpington', 'area4': 'Penge',
         'vehicle': 'family cars and SUVs', 'tmpl': 4,
-        'pc': ['BR1', 'BR2', 'BR3', 'BR5', 'BR6'],
+        'pc': ['BR1', 'BR2', 'BR3', 'BR4', 'BR5', 'BR6', 'BR7', 'BR8', 'SE9', 'SE20'],
         'lid': 52,
     }),
     ('camden', {
@@ -67,7 +67,7 @@ BOROUGHS = [
         'area1': 'Camden Town', 'area2': 'Kentish Town',
         'area3': 'Hampstead', 'area4': 'Belsize Park',
         'vehicle': 'cars and private hire vehicles', 'tmpl': 6,
-        'pc': ['NW1', 'NW3', 'NW5', 'NW6'],
+        'pc': ['NW1', 'NW3', 'NW5', 'NW6', 'NW8', 'WC1', 'WC2'],
         'lid': 43,
     }),
     ('city-of-westminster', {
@@ -76,7 +76,7 @@ BOROUGHS = [
         'area1': 'Mayfair', 'area2': 'Pimlico',
         'area3': 'Paddington', 'area4': 'Soho',
         'vehicle': 'premium and prestige cars', 'tmpl': 7,
-        'pc': ['W1', 'W2', 'SW1', 'WC2'],
+        'pc': ['SW1', 'W1', 'W2', 'WC1', 'WC2'],
         'lid': 21,
     }),
     ('croydon', {
@@ -85,7 +85,7 @@ BOROUGHS = [
         'area1': 'Croydon town centre', 'area2': 'Thornton Heath',
         'area3': 'Purley', 'area4': 'Norbury',
         'vehicle': 'family cars and hatchbacks', 'tmpl': 5,
-        'pc': ['CR0', 'CR2', 'CR5', 'CR8'],
+        'pc': ['CR0', 'CR2', 'CR5', 'CR7', 'CR8', 'SE25'],
         'lid': 51,
     }),
     ('ealing', {
@@ -94,7 +94,7 @@ BOROUGHS = [
         'area1': 'Ealing Broadway', 'area2': 'Acton',
         'area3': 'Southall', 'area4': 'Hanwell',
         'vehicle': 'family cars and SUVs', 'tmpl': 2,
-        'pc': ['W3', 'W5', 'W7', 'W13'],
+        'pc': ['UB1', 'UB2', 'W3', 'W5', 'W7', 'W13'],
         'lid': 45,
     }),
     ('enfield', {
@@ -103,7 +103,7 @@ BOROUGHS = [
         'area1': 'Enfield town', 'area2': 'Edmonton',
         'area3': 'Southgate', 'area4': 'Palmers Green',
         'vehicle': 'family cars and vans', 'tmpl': 0,
-        'pc': ['EN1', 'EN2', 'EN3', 'EN4'],
+        'pc': ['EN1', 'EN2', 'EN3', 'EN4', 'EN8', 'EN9', 'N9', 'N13', 'N14', 'N18', 'N21'],
         'lid': 62,
     }),
     ('greenwich', {
@@ -112,7 +112,7 @@ BOROUGHS = [
         'area1': 'Greenwich town', 'area2': 'Woolwich',
         'area3': 'Charlton', 'area4': 'Blackheath',
         'vehicle': 'cars and light vans', 'tmpl': 4,
-        'pc': ['SE7', 'SE8', 'SE9', 'SE10'],
+        'pc': ['SE3', 'SE7', 'SE8', 'SE9', 'SE10', 'SE18'],
         'lid': 54,
     }),
     ('hackney', {
@@ -121,7 +121,7 @@ BOROUGHS = [
         'area1': 'Hackney Central', 'area2': 'Stoke Newington',
         'area3': 'Dalston', 'area4': 'Shoreditch',
         'vehicle': 'cars and private hire vehicles', 'tmpl': 6,
-        'pc': ['E2', 'E5', 'E8', 'N16'],
+        'pc': ['E2', 'E5', 'E8', 'E9', 'N1', 'N16'],
         'lid': 41,
     }),
     ('hammersmith-and-fulham', {
@@ -130,7 +130,7 @@ BOROUGHS = [
         'area1': 'Hammersmith', 'area2': 'Fulham',
         'area3': "Shepherd's Bush", 'area4': 'Parsons Green',
         'vehicle': 'cars and prestige vehicles', 'tmpl': 7,
-        'pc': ['W6', 'W12', 'SW6', 'SW10'],
+        'pc': ['SW6', 'SW10', 'W6', 'W12', 'W14'],
         'lid': 33,
     }),
     ('haringey', {
@@ -139,7 +139,7 @@ BOROUGHS = [
         'area1': 'Wood Green', 'area2': 'Tottenham',
         'area3': 'Hornsey', 'area4': 'Crouch End',
         'vehicle': 'family cars', 'tmpl': 5,
-        'pc': ['N4', 'N8', 'N15', 'N17'],
+        'pc': ['N4', 'N8', 'N15', 'N17', 'N22'],
         'lid': 61,
     }),
     ('harrow', {
@@ -148,7 +148,7 @@ BOROUGHS = [
         'area1': 'Harrow town centre', 'area2': 'Stanmore',
         'area3': 'Pinner', 'area4': 'Kenton',
         'vehicle': 'family cars and SUVs', 'tmpl': 3,
-        'pc': ['HA1', 'HA2', 'HA3', 'HA5'],
+        'pc': ['HA1', 'HA2', 'HA3', 'HA4', 'HA5', 'HA6', 'HA7'],
         'lid': 64,
     }),
     ('havering', {
@@ -157,7 +157,7 @@ BOROUGHS = [
         'area1': 'Romford', 'area2': 'Hornchurch',
         'area3': 'Upminster', 'area4': 'Harold Wood',
         'vehicle': 'family cars and commercial vehicles', 'tmpl': 0,
-        'pc': ['RM1', 'RM3', 'RM5', 'RM7', 'RM11'],
+        'pc': ['RM1', 'RM2', 'RM3', 'RM4', 'RM5', 'RM6', 'RM7', 'RM8', 'RM9', 'RM11', 'RM12', 'RM14'],
         'lid': 56,
     }),
     ('hillingdon', {
@@ -166,7 +166,7 @@ BOROUGHS = [
         'area1': 'Uxbridge', 'area2': 'Hayes',
         'area3': 'Ruislip', 'area4': 'Yiewsley',
         'vehicle': 'cars and airport-hire vehicles', 'tmpl': 1,
-        'pc': ['UB3', 'UB4', 'UB7', 'UB8', 'UB10'],
+        'pc': ['UB3', 'UB4', 'UB7', 'UB8', 'UB9', 'UB10'],
         'lid': 65,
     }),
     ('hounslow', {
@@ -175,7 +175,7 @@ BOROUGHS = [
         'area1': 'Hounslow town centre', 'area2': 'Brentford',
         'area3': 'Chiswick', 'area4': 'Feltham',
         'vehicle': 'cars and airport-related vehicles', 'tmpl': 1,
-        'pc': ['TW3', 'TW4', 'TW5', 'TW6'],
+        'pc': ['TW3', 'TW4', 'TW5', 'TW6', 'TW13', 'W4'],
         'lid': 46,
     }),
     ('islington', {
@@ -184,7 +184,7 @@ BOROUGHS = [
         'area1': 'Islington', 'area2': 'Holloway',
         'area3': 'Highbury', 'area4': 'Archway',
         'vehicle': 'cars and private hire vehicles', 'tmpl': 6,
-        'pc': ['N1', 'N5', 'N7', 'N19'],
+        'pc': ['EC1', 'N1', 'N4', 'N5', 'N7', 'N19'],
         'lid': 42,
     }),
     ('kensington-and-chelsea', {
@@ -193,7 +193,7 @@ BOROUGHS = [
         'area1': 'Kensington', 'area2': 'Chelsea',
         'area3': 'Notting Hill', 'area4': 'South Kensington',
         'vehicle': 'premium and prestige vehicles', 'tmpl': 7,
-        'pc': ['W8', 'W11', 'SW3', 'SW7'],
+        'pc': ['SW3', 'SW5', 'SW7', 'SW10', 'W8', 'W10', 'W11', 'W14'],
         'lid': 32,
     }),
     ('kingston-upon-thames', {
@@ -211,7 +211,7 @@ BOROUGHS = [
         'area1': 'Brixton', 'area2': 'Clapham',
         'area3': 'Vauxhall', 'area4': 'Streatham',
         'vehicle': 'cars and private hire vehicles', 'tmpl': 6,
-        'pc': ['SW2', 'SW4', 'SW9', 'SW16'],
+        'pc': ['SE1', 'SE5', 'SE11', 'SE24', 'SW2', 'SW4', 'SW8', 'SW9', 'SW16'],
         'lid': 35,
     }),
     ('lewisham', {
@@ -220,7 +220,7 @@ BOROUGHS = [
         'area1': 'Lewisham town centre', 'area2': 'Catford',
         'area3': 'Forest Hill', 'area4': 'Sydenham',
         'vehicle': 'family cars', 'tmpl': 3,
-        'pc': ['SE4', 'SE6', 'SE13', 'SE23'],
+        'pc': ['SE4', 'SE6', 'SE12', 'SE13', 'SE14', 'SE23', 'SE26'],
         'lid': 53,
     }),
     ('merton', {
@@ -229,7 +229,7 @@ BOROUGHS = [
         'area1': 'Wimbledon', 'area2': 'Morden',
         'area3': 'Mitcham', 'area4': 'Colliers Wood',
         'vehicle': 'family cars and SUVs', 'tmpl': 4,
-        'pc': ['SW19', 'SW20', 'CR4'],
+        'pc': ['CR4', 'SM4', 'SW19', 'SW20'],
         'lid': 49,
     }),
     ('newham', {
@@ -238,7 +238,7 @@ BOROUGHS = [
         'area1': 'Stratford', 'area2': 'East Ham',
         'area3': 'Forest Gate', 'area4': 'West Ham',
         'vehicle': 'cars and light vans', 'tmpl': 0,
-        'pc': ['E6', 'E7', 'E12', 'E13'],
+        'pc': ['E6', 'E7', 'E12', 'E13', 'E15', 'E16'],
         'lid': 59,
     }),
     ('redbridge', {
@@ -247,7 +247,7 @@ BOROUGHS = [
         'area1': 'Ilford', 'area2': 'Woodford',
         'area3': 'Wanstead', 'area4': 'Gants Hill',
         'vehicle': 'family cars and SUVs', 'tmpl': 2,
-        'pc': ['IG1', 'IG2', 'IG4', 'IG5', 'IG6'],
+        'pc': ['IG1', 'IG2', 'IG3', 'IG4', 'IG5', 'IG6', 'IG7', 'IG8'],
         'lid': 58,
     }),
     ('richmond-upon-thames', {
@@ -256,7 +256,7 @@ BOROUGHS = [
         'area1': 'Richmond', 'area2': 'Twickenham',
         'area3': 'Kew', 'area4': 'Teddington',
         'vehicle': 'premium cars and SUVs', 'tmpl': 7,
-        'pc': ['TW1', 'TW2', 'TW9', 'TW10'],
+        'pc': ['TW1', 'TW2', 'TW9', 'TW10', 'TW11'],
         'lid': 47,
     }),
     ('southwark', {
@@ -265,7 +265,7 @@ BOROUGHS = [
         'area1': 'Peckham', 'area2': 'Bermondsey',
         'area3': 'Camberwell', 'area4': 'Dulwich',
         'vehicle': 'cars and private hire vehicles', 'tmpl': 6,
-        'pc': ['SE1', 'SE5', 'SE15', 'SE16'],
+        'pc': ['SE1', 'SE5', 'SE15', 'SE16', 'SE17', 'SE21', 'SE22', 'SE24', 'SE25'],
         'lid': 37,
     }),
     ('sutton', {
@@ -274,7 +274,7 @@ BOROUGHS = [
         'area1': 'Sutton town', 'area2': 'Carshalton',
         'area3': 'Cheam', 'area4': 'Wallington',
         'vehicle': 'family cars and SUVs', 'tmpl': 3,
-        'pc': ['SM1', 'SM2', 'SM4', 'SM5'],
+        'pc': ['SM1', 'SM2', 'SM3', 'SM4', 'SM5', 'SM6', 'SM7', 'SM8', 'SM9'],
         'lid': 50,
     }),
     ('tower-hamlets', {
@@ -301,7 +301,7 @@ BOROUGHS = [
         'area1': 'Tooting', 'area2': 'Battersea',
         'area3': 'Putney', 'area4': 'Balham',
         'vehicle': 'family cars and prestige vehicles', 'tmpl': 5,
-        'pc': ['SW11', 'SW12', 'SW15', 'SW17', 'SW18'],
+        'pc': ['SW11', 'SW12', 'SW15', 'SW16', 'SW17', 'SW18', 'SW19'],
         'lid': 34,
     }),
 ]
@@ -1031,6 +1031,75 @@ def get_faqs(service_slug, borough_idx):
     return shuffled[:5]
 
 
+def build_combo_head_schema(borough_slug, service_slug, b_idx):
+    """Return (faq_json_str, service_json_str) for the combo page head."""
+    b   = BOROUGHS_DICT[borough_slug]
+    svc = SERVICES[service_slug]
+
+    # FAQPage — built from the same FAQ pool the body uses
+    faqs = get_faqs(service_slug, b_idx)
+    entities = []
+    for fq in faqs:
+        q = fill(fq['q'], b, svc)
+        a = fill(fq['a'], b, svc)
+        entities.append({
+            '@type': 'Question',
+            'name': q,
+            'acceptedAnswer': {'@type': 'Answer', 'text': a},
+        })
+    faq_json = json.dumps(
+        {'@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': entities},
+        separators=(',', ':'), ensure_ascii=False,
+    )
+
+    # Service schema
+    price_val = float(svc['price_num'])
+    price_val = int(price_val) if price_val == int(price_val) else price_val
+    service_json = json.dumps({
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        'name': f"{svc['name']} in {b['name']}",
+        'description': (
+            f"Mobile {svc['name'].lower()} in {b['name']}, London. "
+            f"Average arrival 20 minutes, 24/7 service."
+        ),
+        'url': f"https://fixmytyrenow.com/areas/{borough_slug}/{service_slug}/",
+        'provider': {
+            '@type': 'AutomotiveBusiness',
+            '@id': 'https://fixmytyrenow.com/#business',
+            'name': 'FixMyTyreNow',
+            'url': 'https://fixmytyrenow.com',
+            'telephone': '+447340645595',
+        },
+        'areaServed': {
+            '@type': 'AdministrativeArea',
+            'name': f"{b['name']}, London",
+        },
+        'offers': {
+            '@type': 'Offer',
+            'price': price_val,
+            'priceCurrency': 'GBP',
+            'availability': 'https://schema.org/InStock',
+        },
+        'aggregateRating': {
+            '@type': 'AggregateRating',
+            'ratingValue': '4.9',
+            'reviewCount': 912,
+            'bestRating': '5',
+            'worstRating': '1',
+        },
+    }, separators=(',', ':'), ensure_ascii=False)
+
+    return faq_json, service_json
+
+
+# Pattern to match the FAQPage JSON-LD script block in <head>
+FAQ_SCHEMA_PAT = re.compile(
+    r'<script type="application/ld\+json">\{"@context":"https://schema\.org","@type":"FAQPage".*?</script>',
+    re.DOTALL,
+)
+
+
 def generate_main_content(borough_slug, service_slug, b_idx):
     b   = BOROUGHS_DICT[borough_slug]
     svc = SERVICES[service_slug]
@@ -1061,7 +1130,7 @@ def generate_main_content(borough_slug, service_slug, b_idx):
 
     content = (
         f'<section class="borough-intro">\n'
-        f'<h2>{svc["name"]} in {b["name"]}</h2>\n'
+        f'<h2>Our {svc["name"]} Service in {b["name"]}</h2>\n'
         f'{intro_html}\n'
         f'</section>\n\n'
 
@@ -1110,25 +1179,35 @@ def update_file(filepath, borough_slug, service_slug, b_idx):
 
     new_sections = generate_main_content(borough_slug, service_slug, b_idx) + '\n\n'
 
+    # ── Update body sections ──────────────────────────────────────────────────
     # Try primary pattern first (everything between borough-intro and borough-cta)
     replaced = REPLACE_PAT.sub(new_sections, content, count=1)
-    if replaced != content:
-        open(filepath, 'w', encoding='utf-8').write(replaced)
-        return 'ok'
+    body_result = 'ok' if replaced != content else None
 
-    # Fallback: replace sections one by one
-    # Find the span from first <section class="borough-intro"> to last </section> before borough-cta
-    cta_pos = content.find('<section class="borough-cta">')
-    intro_pos = content.find('<section class="borough-intro">')
-    if cta_pos > 0 and intro_pos > 0 and intro_pos < cta_pos:
-        # Find the last </section> before the CTA
-        region = content[intro_pos:cta_pos]
-        # Remove all the old sections
-        new_content = content[:intro_pos] + new_sections + content[cta_pos:]
-        open(filepath, 'w', encoding='utf-8').write(new_content)
-        return 'ok-fallback'
+    if body_result:
+        content = replaced
+    else:
+        # Fallback: replace sections one by one
+        cta_pos = content.find('<section class="borough-cta">')
+        intro_pos = content.find('<section class="borough-intro">')
+        if cta_pos > 0 and intro_pos > 0 and intro_pos < cta_pos:
+            content = content[:intro_pos] + new_sections + content[cta_pos:]
+            body_result = 'ok-fallback'
+        else:
+            return 'failed'
 
-    return 'failed'
+    # ── Update FAQPage schema in <head> (C-1: sync schema with body) ──────────
+    faq_json, service_json = build_combo_head_schema(borough_slug, service_slug, b_idx)
+    faq_script = f'<script type="application/ld+json">{faq_json}</script>'
+    content = FAQ_SCHEMA_PAT.sub(faq_script, content, count=1)
+
+    # ── Add Service schema if not already present (H-1) ───────────────────────
+    if '"@type":"Service"' not in content:
+        service_script = f'<script type="application/ld+json">{service_json}</script>\n'
+        content = content.replace('</head>', service_script + '</head>', 1)
+
+    open(filepath, 'w', encoding='utf-8').write(content)
+    return body_result
 
 
 # ── MAIN ──────────────────────────────────────────────────────────────────────

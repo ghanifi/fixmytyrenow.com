@@ -20,6 +20,5 @@ User-agent: *
 Allow: /
 Disallow: /booking/
 Disallow: /franchise-registration/
-Disallow: /wp-json/
 
 Sitemap: https://fixmytyrenow.com/sitemap.xml
