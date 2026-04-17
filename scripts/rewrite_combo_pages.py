@@ -443,7 +443,9 @@ INTROS = {
 # ── SERVICE WHAT SECTION ─────────────────────────────────────────────────────
 SERVICE_WHAT = {
 
-'emergency-tyre-replacement': '''<h2>What Emergency Tyre Replacement Includes</h2>
+'emergency-tyre-replacement': [
+
+'''<h2>What Emergency Tyre Replacement Includes</h2>
 <p>Every emergency callout covers the following as standard:</p>
 <ul>
 <li><strong>Tyre and wheel assessment on arrival:</strong> the technician inspects the condition of the tyre, the wheel rim, the valve, and the surrounding area before starting work.</li>
@@ -457,7 +459,27 @@ SERVICE_WHAT = {
 </ul>
 <p>The from £69 price is all-inclusive. There is no callout fee and no charge for balancing or disposal on top of the tyre and fitting cost.</p>''',
 
-'standard-tyre-fitting': '''<h2>What Standard Tyre Fitting Includes</h2>
+'''<h2>From Call to Completion: The Emergency Tyre Process</h2>
+<p>Knowing what to expect makes a breakdown less stressful. Here is the sequence of events from the moment you call to when you drive away.</p>
+<p><strong>When you call:</strong> we confirm your location, collect your vehicle registration and tyre size if you have it, and dispatch the nearest available technician. You will receive a call when the technician is approximately five minutes away.</p>
+<p><strong>On arrival:</strong> the technician assesses the failed tyre and wheel rim before any work starts. If the rim has been damaged by driving on a flat, this is identified now rather than after a new tyre is fitted. The replacement tyre brand and price are confirmed with you before the old tyre is touched.</p>
+<p><strong>During fitting:</strong> the failed tyre is removed and the replacement is mounted and seated on the rim. The assembly is then balanced on the van\'s computerised balancing machine to within 1 gram of tolerance, the tyre is inflated to the pressure specified for your vehicle, and all wheel bolts are torqued to the manufacturer\'s specification.</p>
+<p><strong>Before leaving:</strong> the TPMS sensor is reset where applicable. The failed tyre is loaded into the van for recycling. A receipt is issued for the full amount paid.</p>
+<p>The entire process typically takes 30 to 45 minutes from the technician\'s arrival. The from £69 price covers everything: tyre, fitting, balancing, TPMS reset, and disposal. There is no callout charge on top.</p>''',
+
+'''<h2>Why On-Van Equipment Makes a Difference</h2>
+<p>An emergency tyre replacement done properly requires more than a tyre and a jack. The equipment a technician carries to your location determines whether the job is completed to the same standard as a workshop fitting or simply good enough to get you home.</p>
+<p>Every van in our fleet is equipped with computerised wheel balancing equipment. This is the same technology used in tyre workshops, not a portable approximation of it. A wheel that leaves your vehicle unbalanced will cause vibration through the steering, uneven tread wear, and premature bearing wear. We balance every tyre we fit, whether the callout is on a motorway or a residential street.</p>
+<p>Inflation is set to the figure specified for your vehicle, not an approximate figure. Under-inflation and over-inflation both affect handling and tyre life. The correct pressure is found in your vehicle\'s door sill label or handbook and varies by load and speed conditions.</p>
+<p>Wheel bolt torque is checked with a calibrated torque wrench, not estimated by feel. Incorrect torque is a safety issue: under-torqued bolts can work loose in service; over-torqued bolts stretch and can shear.</p>
+<p>Where your vehicle has TPMS, the sensor is reset after fitting so the warning light clears. Leaving a false low-pressure warning active trains drivers to ignore the TPMS system, which defeats its safety purpose.</p>
+<p>All of this is included in the from £69 price. There are no separate charges for balancing, inflation, or TPMS reset.</p>''',
+
+],
+
+'standard-tyre-fitting': [
+
+'''<h2>What Standard Tyre Fitting Includes</h2>
 <p>A standard tyre fitting appointment covers the following in a single visit:</p>
 <ul>
 <li><strong>Tyre selection advice:</strong> if you are unsure which tyre to choose, the technician can discuss the options for your vehicle and typical usage. All brands and prices are confirmed before any work starts.</li>
@@ -471,7 +493,26 @@ SERVICE_WHAT = {
 </ul>
 <p>Fitting times are approximately 45 minutes per tyre. Two tyres on the same axle are completed in around 75 minutes. Slots are available daily from 06:00 to 22:00. A £10 deposit is taken at booking and deducted from the final invoice.</p>''',
 
-'puncture-repair': '''<h2>How Puncture Repair Works</h2>
+'''<h2>Choosing the Right Tyre for Your Vehicle and Usage</h2>
+<p>Tyre choice is not just a matter of budget. The right tyre for your vehicle depends on the size and load rating specified by the manufacturer, your typical driving conditions, and how you prioritise performance, longevity, and cost.</p>
+<p><strong>Premium tyres</strong> (Michelin, Continental, Pirelli, Bridgestone) offer the shortest wet braking distances, the lowest rolling resistance, and the longest tread life. For vehicles driven at motorway speeds or in mixed urban and rural conditions, the additional cost per tyre pays back in safety margin and fuel economy over the life of the tyre.</p>
+<p><strong>Mid-range tyres</strong> (Hankook, Yokohama, Falken) close much of the gap with premium brands at a lower price point. They are a sound choice for vehicles covering moderate annual mileage in predominantly urban conditions.</p>
+<p><strong>Budget tyres</strong> (Nexen, Landsail) meet UK legal requirements and pass the EU tyre labelling criteria. They are appropriate for low-mileage vehicles, second cars, and applications where total cost is the primary consideration. Wet braking distances are measurably longer than premium equivalents.</p>
+<p>Our technician will confirm the correct size and load rating for your vehicle before selecting a tyre. If you have a preference for a specific brand or specification, let us know when booking so we can ensure it is on the van. The from £65 price covers the tyre, fitting, balancing, inflation, TPMS reset, and disposal of the old tyre. No separate charges apply.</p>''',
+
+'''<h2>What Correct Tyre Fitting Involves</h2>
+<p>Fitting a tyre incorrectly creates risks that may not be immediately apparent. Bead seating failures, incorrect torque, and missed TPMS resets are the most common consequences of poor-quality fitting. Here is what correct fitting looks like and why each step matters.</p>
+<p><strong>Bead seating:</strong> when a new tyre is mounted on a rim, the bead of the tyre must seat fully against the rim flange before inflation. A partially seated bead can cause a sudden blowout when the tyre reaches operating pressure or temperature. We inspect and confirm bead seating before inflating to specification.</p>
+<p><strong>Balancing:</strong> a new tyre fitted without balancing will produce vibration at speed, accelerate tread wear, and stress wheel bearings over time. We balance every tyre we fit using on-van computerised equipment. The threshold is 1 gram of tolerance, the same standard used in tyre workshops.</p>
+<p><strong>Inflation:</strong> tyre pressure affects handling, fuel consumption, tyre wear, and load capacity. We inflate to the figure specified by the vehicle manufacturer for your load condition, not a generic estimate. This figure is on the door sill label or in the handbook.</p>
+<p><strong>Torque:</strong> wheel bolts must be tightened to the correct torque figure for the vehicle. We use a calibrated torque wrench on every fitting. Under-torqued bolts can loosen in service; over-torqued bolts are liable to shear and compromise the integrity of the wheel assembly.</p>
+<p>Fitting time is approximately 45 minutes per tyre. All of the above is included in the from £65 price.</p>''',
+
+],
+
+'puncture-repair': [
+
+'''<h2>How Puncture Repair Works</h2>
 <p>A professional puncture repair involves more than inserting a plug from the outside. The industry standard is the two-stage internal plug-and-patch method, as defined by BSAU 144e. Here is what a repair visit involves:</p>
 <ul>
 <li><strong>Wheel removal:</strong> the wheel is taken off the vehicle so the tyre can be fully inspected from both inside and out.</li>
@@ -484,7 +525,31 @@ SERVICE_WHAT = {
 </ul>
 <p>A correctly completed plug-and-patch repair is road-legal for the remaining life of the tyre and does not need to be disclosed when selling the vehicle. Foam sealant products used as a temporary measure can contaminate the inside of the tyre and make professional repair impossible. If you have used sealant, please tell us when you call.</p>''',
 
-'wheel-balancing': '''<h2>How Mobile Wheel Balancing Works</h2>
+'''<h2>What Makes a Puncture Repair Road-Legal</h2>
+<p>Not every puncture can be repaired, and not every repair method produces a road-legal result. The standard that defines what is and is not acceptable in the UK is BSAU 144e, published by the British Standards Institution. Understanding the criteria helps you know what to expect when you call.</p>
+<p><strong>Location of the damage:</strong> the puncture must be within the central tread zone of the tyre. Damage in the sidewall or within 25mm of the tyre shoulder cannot be repaired under any circumstances. The sidewall flexes with every revolution and a repair there will not hold under road conditions.</p>
+<p><strong>Size of the damage:</strong> the penetration must be no larger than 6mm in diameter. Larger holes compromise the structural integrity of the casing in ways that a plug-and-patch repair cannot fully restore.</p>
+<p><strong>Run-flat condition:</strong> if a tyre has been driven while flat, even for a short distance, the internal structure of the casing can be damaged by the weight of the vehicle operating without air pressure. This damage is invisible from outside. A tyre that has been driven flat cannot be repaired and must be replaced.</p>
+<p><strong>The repair method:</strong> a road-legal repair uses a chemical vulcanising patch applied to the inside of the tyre casing (primary seal) combined with a rubber plug inserted from inside out through the puncture (secondary seal). External-only plug repairs and tyre sealant products do not meet the standard and are not road-legal as permanent repairs.</p>
+<p>If your tyre does not meet these criteria, we will tell you clearly and explain your replacement options. The assessment is completed at no charge.</p>''',
+
+'''<h2>Why the Assessment Stage Matters</h2>
+<p>Before any repair work begins, the tyre must be removed from the vehicle and dismounted from the rim. This is not an optional step: it is the only way to inspect the inside of the casing, which is where the primary seal of a compliant repair is applied and where damage invisible from outside is identified.</p>
+<p>Roadside plug kits and mobile repair services that do not dismount the tyre cannot perform a BSAU 144e compliant repair. Inserting a plug from the outside without internal inspection misses casing damage and leaves the structural integrity of the tyre unverified. This type of repair is suitable as a temporary measure to reach a workshop, not as a permanent fix.</p>
+<p>During the assessment we check:</p>
+<ul>
+<li>Whether the damage is in the repairable zone (central tread, not sidewall or shoulder).</li>
+<li>Whether the penetration diameter is within the 6mm maximum.</li>
+<li>Whether the casing shows signs of having been driven flat: internal rib cracking, bead area distortion, or heat delamination of the inner liner.</li>
+<li>Whether there is any additional damage to the casing from the cause of the puncture, such as a nail that entered at an angle and created a larger internal cavity than the external hole suggests.</li>
+</ul>
+<p>If all criteria are met, the repair takes 30 minutes and the tyre is returned to service for its remaining legal life. If not, we explain the finding and provide a replacement quote. The assessment itself costs nothing.</p>''',
+
+],
+
+'wheel-balancing': [
+
+'''<h2>How Mobile Wheel Balancing Works</h2>
 <p>Wheel balancing corrects the uneven weight distribution around a wheel-and-tyre assembly. Here is what the service involves:</p>
 <ul>
 <li><strong>Wheel removal:</strong> each wheel is removed from the vehicle and mounted on the on-van balancing machine.</li>
@@ -496,7 +561,26 @@ SERVICE_WHAT = {
 </ul>
 <p>Wheel balancing is different from wheel alignment. Balancing addresses weight distribution around the wheel axis. Alignment addresses the geometry of the wheel relative to the road and the vehicle\'s other wheels. If your vehicle pulls to one side when driving straight, the issue is more likely alignment than balance. Vibration through the steering wheel at speed points to a balance issue. Both can be present at the same time.</p>''',
 
-'run-flat-replacement': '''<h2>Why Run-Flat Replacement Requires Specialist Equipment</h2>
+'''<h2>Recognising a Wheel Balance Problem</h2>
+<p>Wheel imbalance produces specific symptoms. Knowing what to look for helps you identify the issue before it causes secondary damage to tyres or suspension components.</p>
+<p><strong>Steering wheel vibration at speed:</strong> the most common symptom of front wheel imbalance. The vibration typically begins at a specific speed, often between 50 and 70 mph, and may reduce or disappear at higher speeds. This is because the vibration frequency coincides with the rotational speed of the wheel at those road speeds.</p>
+<p><strong>Seat or floor vibration:</strong> vibration felt through the seat or floor rather than the steering wheel usually points to a rear wheel imbalance. Because the rear wheels are not connected to the steering, the imbalance transmits through the chassis rather than the steering column.</p>
+<p><strong>Uneven or patchy tyre wear:</strong> an out-of-balance wheel bounces slightly as it rotates, creating high-pressure contact patches on the tyre tread. Over thousands of miles, this produces a scalloped or cupped wear pattern. Tyre wear of this type is visible on inspection and does not correct itself once present, even if the wheel is subsequently balanced.</p>
+<p><strong>Wheel weights missing or detached:</strong> if you notice a small metal weight clipped to your rim has fallen off, the wheel is running unbalanced. Clip-on weights can detach from kerb strikes. Adhesive weights applied to the inner rim face are more resistant to this but can also detach if the rim surface was not properly cleaned before application.</p>
+<p>Mobile wheel balancing addresses all of these. Each wheel is removed, spun on our on-van computerised machine, and balanced to within 1 gram. The service costs from £15 per wheel and takes approximately 30 minutes for all four wheels.</p>''',
+
+'''<h2>Wheel Balancing Compared to Wheel Alignment</h2>
+<p>These two services address different problems. Confusing them leads to vehicles that still drive poorly after one service when the other was what was actually needed. Here is a clear explanation of the difference.</p>
+<p><strong>Wheel balancing</strong> addresses uneven weight distribution around the rotational axis of the wheel-and-tyre assembly. No tyre and rim combination is perfectly uniform in weight. Manufacturing tolerances, valve placement, and minor dimensional variations all contribute to imbalance. A balancing machine measures where the heavy spots are and calculates where small weights need to be added to the rim to counteract them. The result is an assembly that rotates without generating vibration. Symptoms of imbalance: vibration at speed, uneven tyre wear.</p>
+<p><strong>Wheel alignment</strong> (also called tracking) addresses the angles at which the wheels sit relative to the road and to each other. The three key angles are camber (tilt inward or outward from vertical), toe (angle inward or outward from straight ahead), and caster (angle of the steering axis). These angles affect how the vehicle tracks in a straight line, how it handles in corners, and how evenly the tyres wear across the tread width. Symptoms of misalignment: the vehicle pulls to one side on a straight road, the steering wheel is off-centre when driving straight, the tyres wear faster on one edge than the other.</p>
+<p>Both conditions can exist simultaneously. If your vehicle vibrates at speed and also pulls to one side, the most likely explanation is both imbalance and misalignment. Our mobile service covers balancing. Alignment requires a four-wheel alignment rig and is not available as a mobile service.</p>
+<p>Balancing costs from £15 per wheel and takes approximately 30 minutes for a full set of four.</p>''',
+
+],
+
+'run-flat-replacement': [
+
+'''<h2>Why Run-Flat Replacement Requires Specialist Equipment</h2>
 <p>Run-flat tyres have a reinforced sidewall that allows the tyre to support the vehicle\'s weight without air pressure for a limited distance. This reinforcement makes them significantly more resistant to the standard tyre-changing machinery used at most garages and kerbside fitting services. Attempting to demount a run-flat tyre without the correct equipment can crack or permanently deform the bead of the tyre and, more critically, scratch or break the alloy wheel rim.</p>
 <p>Our run-flat replacement technicians carry dedicated run-flat capable tools and work to the procedures specified for each vehicle type. Here is what a run-flat replacement involves:</p>
 <ul>
@@ -509,6 +593,23 @@ SERVICE_WHAT = {
 <li><strong>Torque check:</strong> wheel bolts are tightened to the specification for your vehicle.</li>
 </ul>
 <p>Run-flat tyres that have been driven in run-flat mode cannot be repaired. The internal structure breaks down under load without adequate pressure and the damage is not visible externally. All run-flat tyres presenting after a pressure event require replacement, regardless of outward appearance.</p>''',
+
+'''<h2>What Happens When Run-Flat Tyres Are Handled Without the Right Tools</h2>
+<p>Most tyre fitting garages and kerbside services do not carry the equipment needed to safely demount and remount run-flat tyres. When a run-flat tyre is forced off a rim using standard machinery, several types of damage are possible.</p>
+<p><strong>Bead cracking:</strong> the stiffened sidewall of a run-flat tyre resists the standard downward force used to break the bead from the rim. Applying excessive force cracks the bead. A cracked bead cannot hold air pressure and the tyre is unusable regardless of whether a new tyre was intended to be fitted or the original tyre reseated.</p>
+<p><strong>Rim damage:</strong> the rigid sidewall transfers force to the rim during forced demounting. Steel rims develop gouges and distortion. Alloy rims, which are more brittle, develop cracks or fractures that are not always immediately visible but compromise the structural integrity of the wheel.</p>
+<p><strong>Bead seat damage:</strong> the bead seat is the machined surface on the inside of the rim that the tyre bead rests against when inflated. Damage to the bead seat prevents an airtight seal and can cause slow deflation or sudden tyre failure in service.</p>
+<p>Our run-flat technicians use low-force tooling developed specifically for stiffened sidewall tyres. The tyre is removed using a process that works with the tyre\'s construction rather than against it. Rim inspection is carried out after every removal. Any damage present from prior operation in run-flat mode is documented and discussed before the replacement tyre is fitted.</p>
+<p>Run-flat replacement starts from £110 and includes the tyre, specialist fitting, balancing, TPMS reset, and old tyre disposal.</p>''',
+
+'''<h2>After a Run-Flat Pressure Event: What to Expect</h2>
+<p>If your TPMS warning has activated and you have driven any distance on a deflated run-flat tyre, the sequence of events from that point follows a specific path. Understanding it helps you make informed decisions quickly.</p>
+<p><strong>The tyre cannot be repaired.</strong> A run-flat tyre that has operated without sufficient air pressure, even for a short distance, has compressed its reinforced sidewall under the vehicle\'s load. The internal structure experiences heat and mechanical stress that damages the rubber compounds and reinforcing cords in ways not visible from the outside. BSAU 144e does not permit repair of run-flat tyres that have been operated in run-flat mode. The only option is replacement.</p>
+<p><strong>The rim must be inspected.</strong> Extended operation in run-flat mode, or driving at speed on a fully deflated tyre, can cause rim damage. The inspection at the start of a replacement visit identifies any structural damage to the bead seat or rim face. If the rim is damaged, fitting a new tyre on it is not safe and we will advise you before proceeding.</p>
+<p><strong>The TPMS sensor must be reset.</strong> After replacement, the pressure sensor needs to be reset to clear the low-pressure fault and relearn the new tyre. On most BMW, Mercedes-Benz, and Porsche vehicles, this requires a specific relearn procedure carried out with diagnostic tools. We carry the equipment to complete this on-site so you leave without a warning light.</p>
+<p><strong>Match the specification.</strong> Run-flat tyres must be replaced with a run-flat tyre of the same size and load rating. Fitting a standard tyre on a vehicle without a spare wheel creates a safety risk if a second tyre fails. We carry run-flat stock for common fitments including BMW, Mini, Mercedes-Benz, Porsche, and Lexus. Run-flat replacement starts from £110 all-inclusive.</p>''',
+
+],
 
 }
 
@@ -725,7 +826,8 @@ def generate_main_content(borough_slug, service_slug, b_idx):
     tmpl_idx = b.get('tmpl', 0) % len(intro_templates)
     intro_html = fill(intro_templates[tmpl_idx], b, svc)
 
-    what_html = fill(SERVICE_WHAT[service_slug], b, svc)
+    what_variants = SERVICE_WHAT[service_slug]
+    what_html = fill(what_variants[b_idx % len(what_variants)], b, svc)
 
     faqs = get_faqs(service_slug, b_idx)
     faq_items = []
