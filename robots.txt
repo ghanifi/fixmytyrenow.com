@@ -19,6 +19,5 @@ Disallow: /
 User-agent: *
 Allow: /
 Disallow: /booking/
-Disallow: /franchise-registration/
 
 Sitemap: https://fixmytyrenow.com/sitemap.xml
