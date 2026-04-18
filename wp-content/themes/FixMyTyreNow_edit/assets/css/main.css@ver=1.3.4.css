@@ -3407,34 +3407,167 @@ a.cic-link:hover { text-decoration: underline; }
 
 /* ── Content section ─────────────────────────────────────── */
 .freg-content-section {
-  padding: 72px 40px 80px;
+  padding: 80px 40px 88px;
   background: #fff;
   border-top: 1px solid var(--border);
 }
-.freg-content-inner { max-width: 760px; margin: 0 auto; }
-.freg-prose { font-size: 15px; color: var(--dark); line-height: 1.75; }
+.freg-content-inner { max-width: 800px; margin: 0 auto; }
+.freg-prose { font-size: 15.5px; color: var(--dark); line-height: 1.78; }
 .freg-prose h2 {
-  font-size: 26px; font-weight: 800; letter-spacing: -.5px;
-  color: var(--dark); margin: 44px 0 12px;
+  font-size: 28px; font-weight: 800; letter-spacing: -.6px;
+  color: var(--dark); margin: 60px 0 14px;
+  padding-top: 60px; border-top: 1px solid var(--border);
 }
-.freg-prose h2:first-child { margin-top: 0; }
+.freg-prose h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
 .freg-prose h3 {
   font-size: 18px; font-weight: 700;
-  color: var(--dark); margin: 28px 0 8px;
+  color: var(--dark); margin: 32px 0 10px;
 }
-.freg-prose p { color: var(--muted); margin-bottom: 14px; }
+.freg-prose p { color: var(--muted); margin-bottom: 16px; }
 .freg-prose ul {
   list-style: none; display: flex; flex-direction: column;
-  gap: 7px; margin-bottom: 20px;
+  gap: 9px; margin-bottom: 22px;
 }
 .freg-prose ul li {
-  font-size: 14px; color: var(--muted);
-  padding-left: 18px; position: relative;
+  font-size: 15px; color: var(--muted);
+  padding-left: 22px; position: relative; line-height: 1.6;
 }
 .freg-prose ul li::before {
   content: '›'; position: absolute; left: 0;
-  color: var(--orange); font-weight: 700;
+  color: var(--orange); font-weight: 700; font-size: 17px;
 }
+.freg-prose ul li strong { color: var(--dark); }
+
+/* Numbered steps */
+.freg-prose ol {
+  list-style: none; display: flex; flex-direction: column;
+  gap: 14px; margin-bottom: 24px;
+  counter-reset: freg-step;
+}
+.freg-prose ol li {
+  font-size: 15px; color: var(--muted);
+  padding-left: 48px; position: relative; line-height: 1.6;
+  counter-increment: freg-step;
+}
+.freg-prose ol li::before {
+  content: counter(freg-step);
+  position: absolute; left: 0; top: 0;
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--orange); color: #fff;
+  font-size: 13px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* Earnings highlight block */
+.freg-earnings-block {
+  background: linear-gradient(135deg, #fff7f2 0%, #fff3eb 100%);
+  border: 2px solid rgba(255,106,0,.18);
+  border-radius: var(--radius-card);
+  padding: 28px 32px 22px;
+  margin: 16px 0 28px;
+}
+.freg-earnings-block p {
+  color: var(--dark) !important; font-weight: 500; margin-bottom: 14px;
+}
+.freg-earnings-block ul { margin-bottom: 0; gap: 10px; }
+.freg-earnings-block ul li {
+  font-size: 17px; font-weight: 700; color: var(--dark);
+  padding-left: 0; line-height: 1.4;
+}
+.freg-earnings-block ul li::before { display: none; }
+.freg-earnings-block ul li strong { color: var(--orange); font-size: 20px; }
+.freg-earnings-block small {
+  display: block; margin-top: 18px;
+  color: var(--muted) !important; font-size: 13px; line-height: 1.5;
+}
+
+/* Testimonials */
+blockquote.freg-testimonial {
+  margin: 0 0 18px;
+  background: var(--bg-alt);
+  border-left: 4px solid var(--orange);
+  border-radius: 0 var(--radius-card) var(--radius-card) 0;
+  padding: 24px 28px 20px;
+  position: relative; overflow: hidden;
+}
+blockquote.freg-testimonial::before {
+  content: '\201C';
+  position: absolute; top: -8px; right: 18px;
+  font-size: 80px; color: var(--orange); opacity: .08;
+  font-family: Georgia, serif; line-height: 1;
+  pointer-events: none; user-select: none;
+}
+blockquote.freg-testimonial p {
+  font-size: 15.5px; color: var(--dark) !important; font-style: italic;
+  margin: 0 0 12px; line-height: 1.7;
+}
+blockquote.freg-testimonial cite {
+  font-size: 13px; font-weight: 700;
+  color: var(--orange); font-style: normal;
+}
+
+/* Comparison / pricing table in prose */
+.freg-prose table.freg-pricing-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 14px; margin: 12px 0 28px;
+  border-radius: var(--radius-card); overflow: hidden;
+  border: 1.5px solid var(--border);
+  box-shadow: 0 2px 12px rgba(0,0,0,.05);
+}
+.freg-prose table.freg-pricing-table thead tr {
+  background: var(--dark);
+}
+.freg-prose table.freg-pricing-table thead th {
+  padding: 14px 20px; font-weight: 700; font-size: 13px;
+  color: #fff; text-align: left; letter-spacing: .02em;
+}
+.freg-prose table.freg-pricing-table tbody tr:nth-child(odd) { background: #fff; }
+.freg-prose table.freg-pricing-table tbody tr:nth-child(even) { background: var(--bg-alt); }
+.freg-prose table.freg-pricing-table tbody tr:hover { background: #fff7f2; }
+.freg-prose table.freg-pricing-table td {
+  padding: 13px 20px; border-bottom: 1px solid var(--border);
+  color: var(--muted); line-height: 1.5;
+}
+.freg-prose table.freg-pricing-table td:first-child {
+  font-weight: 700; color: var(--dark);
+}
+
+/* Prose HR */
+.freg-prose hr {
+  border: none; border-top: 1px solid var(--border);
+  margin: 56px 0;
+}
+
+/* ── Final CTA section ───────────────────────────────────── */
+.freg-final-cta-section {
+  background: var(--dark);
+  padding: 80px 40px;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.freg-final-cta-section::before {
+  content: '';
+  position: absolute; top: -120px; left: 50%; transform: translateX(-50%);
+  width: 600px; height: 400px;
+  background: radial-gradient(ellipse, rgba(255,106,0,.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.freg-final-cta-inner {
+  max-width: 600px; margin: 0 auto; position: relative; z-index: 1;
+}
+.freg-final-cta-section h2 {
+  font-size: 38px; font-weight: 800; color: #fff;
+  letter-spacing: -1.2px; margin: 0 0 16px; line-height: 1.1;
+}
+.freg-final-cta-section p {
+  font-size: 16px; color: rgba(255,255,255,.55);
+  line-height: 1.7; margin: 0 0 32px;
+}
+.freg-final-cta-note {
+  font-size: 13px; color: rgba(255,255,255,.35) !important;
+  margin-top: 18px !important;
+}
+.btn-lg { padding: 18px 48px; font-size: 17px; }
 
 /* ── Responsive ─────────────────────────────────────────── */
 @media (max-width: 960px) {
@@ -3446,16 +3579,30 @@ a.cic-link:hover { text-decoration: underline; }
   .freg-hero { padding: 52px 20px 48px; }
   .freg-hero__h1 { font-size: 30px; letter-spacing: -1px; }
   .freg-form-section { padding: 48px 20px 60px; }
-  .freg-content-section { padding: 52px 20px 60px; }
+  .freg-content-section { padding: 52px 20px 64px; }
   .freg-card { padding: 20px 18px; }
   .freg-grid { grid-template-columns: 1fr; }
   .freg-services { grid-template-columns: repeat(3, 1fr); }
   .freg-submit-row { flex-direction: column; align-items: stretch; }
   #freg-submit { width: 100%; justify-content: center; }
   .freg-stat-card__row { grid-template-columns: 1fr 1fr 1fr; }
+  .freg-prose h2 { font-size: 22px; margin: 44px 0 12px; padding-top: 44px; }
+  .freg-prose h3 { font-size: 16px; }
+  .freg-earnings-block { padding: 20px 20px 18px; }
+  .freg-earnings-block ul li { font-size: 15px; }
+  .freg-earnings-block ul li strong { font-size: 17px; }
+  blockquote.freg-testimonial { padding: 18px 20px 16px; }
+  .freg-prose table.freg-pricing-table thead th,
+  .freg-prose table.freg-pricing-table td { padding: 10px 12px; font-size: 13px; }
+  .freg-final-cta-section { padding: 56px 20px; }
+  .freg-final-cta-section h2 { font-size: 28px; }
+  .btn-lg { padding: 16px 32px; font-size: 15px; }
 }
 @media (max-width: 400px) {
   .freg-services { grid-template-columns: repeat(2, 1fr); }
+  .freg-prose table.freg-pricing-table { font-size: 12px; }
+  .freg-prose table.freg-pricing-table thead th,
+  .freg-prose table.freg-pricing-table td { padding: 8px 10px; }
 }
 
 /* ========== LOCATION PAGE: NEW SECTIONS ========== */
