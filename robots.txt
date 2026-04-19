@@ -19,5 +19,6 @@ Disallow: /
 User-agent: *
 Allow: /
 Disallow: /booking/
+Disallow: /wp-json/
 
 Sitemap: https://fixmytyrenow.com/sitemap.xml
