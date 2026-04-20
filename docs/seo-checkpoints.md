@@ -1,7 +1,8 @@
 # SEO Geliştirme Checkpoints — fixmytyrenow.com
 
-**Son güncelleme:** 2026-04-19 (3. oturum)
+**Son güncelleme:** 2026-04-20 (4. oturum)
 **Audit raporu:** `docs/seo-audit-2026-04-18.md`
+**Rekabet analizi:** `docs/competitive-analysis.md`
 
 ---
 
@@ -90,6 +91,7 @@
     - `og-area.jpg` → tüm `areas/*/index.html` (32 sayfa)
     - `og-franchise.jpg` → `franchise-registration/index.html`
     - `og-service.jpg` → diğer 4 servis sayfası
+    - `og-blog.jpg` → tüm `blog/*/index.html`
 
 - [x] **İlçe sayfası meta description'larının optimize edilmesi (32 sayfa)**
   - Tüm 32 area sayfası 150–160 char aralığına getirildi
@@ -120,6 +122,32 @@
   - Open Graph standardında `"service"` veya `"local_business"` type yok
   - `"website"` tüm sayfa tipleri için doğru ve standart değer
 
+- [x] **Blog içerik hub'ı oluşturuldu**
+  - `blog/index.html` — Blog hub sayfası (Blog şeması + BreadcrumbList)
+  - `blog/how-long-do-tyres-last/` — Article + FAQPage şeması, ~650 kelime
+  - `blog/what-to-do-flat-tyre-london/` — Article + HowTo + FAQPage şeması, ~560 kelime
+  - `blog/run-flat-tyres-explained/` — Article + FAQPage şeması, ~650 kelime
+  - Sitemap'e eklendi (priority: 0.9 hub, 0.8 makaleler)
+  - Footer'da Company sütununa Blog linki eklendi
+
+- [x] **Havalimanı lokasyon sayfaları oluşturuldu**
+  - `locations/heathrow-airport/` — TW6, TW14, TW15, UB3, UB7 — AutomotiveBusiness + FAQPage şeması
+  - `locations/city-airport/` — E16, E6, SE7 — AutomotiveBusiness + FAQPage şeması
+  - Sitemap'e eklendi (priority: 0.8)
+
+- [x] **Lastik marka sayfaları oluşturuldu (5 marka)**
+  - `tyres/michelin/` — Pilot Sport 5, Primacy 4+, CrossClimate 2, Energy Saver+
+  - `tyres/continental/` — PremiumContact 7, SportContact 7, EcoContact 6
+  - `tyres/pirelli/` — P Zero, Cinturato P7, Scorpion serisi
+  - `tyres/bridgestone/` — Potenza Sport, Turanza T005, Turanza All Season 6
+  - `tyres/goodyear/` — Eagle F1 Asymmetric 6, EfficientGrip Performance 2, Vector 4Seasons Gen-3
+  - Her sayfada AutomotiveBusiness + FAQPage + BreadcrumbList şeması
+  - Sitemap'e eklendi (priority: 0.8)
+
+- [x] **ads.txt oluşturuldu**
+  - `ads.txt` — Google AdSense publisher doğrulaması
+  - `google.com, pub-3554409000033206, DIRECT, f08c47fec0942fa0`
+
 ---
 
 ### Düşük Öncelik
@@ -132,13 +160,13 @@
 - [x] **Bugün değiştirilen sayfaların sitemap lastmod tarihi güncellendi**
   - `sitemap.xml`
   - 37 URL → `2026-04-19` (homepage, about, services, franchise, reviews, emergency service, 32 area sayfası)
-  - 166 URL → `2026-04-16` kaldı (combo sayfaları — içerik değişmedi)
+  - 11 yeni URL → `2026-04-20` (blog, locations, tyres)
 
-- [x] **Sitemap'e `<changefreq>` değerleri eklendi (204 URL)**
+- [x] **Sitemap'e `<changefreq>` değerleri eklendi (215 URL)**
   - `sitemap.xml`
   - Ana sayfa: `daily` (1 URL)
-  - Hub sayfalar: `weekly` (6 URL)
-  - İlçe/servis/combo sayfaları: `monthly` (197 URL)
+  - Hub sayfalar: `weekly` (7 URL — blog/ eklendi)
+  - İlçe/servis/combo/blog/location/brand sayfaları: `monthly`
 
 - [ ] **İlçe sayfalarına service-specific OG açıklamaları**
   - Şu an ilçe sayfalarında og:description = meta description
@@ -148,13 +176,38 @@
 
 ## Teknik Borç
 
-- [ ] **Favicon Apple Touch Icon güncellemesi**
-  - `apple-touch-icon` şu an `favicon.ico` gösteriyor (180×180 PNG olmalı)
-  - Tüm sayfalarda aynı sorun mevcut — yeni PNG dosyası oluşturulup atanmalı
+- [x] **Favicon Apple Touch Icon güncellemesi** *(tamamlandı)*
+  - `apple-touch-icon.png` mevcut — 180×180 RGBA PNG
+  - Tüm sayfalar `/apple-touch-icon.png` referansını kullanıyor
 
 - [x] **`/wp-json/` robots.txt'e eklendi**
   - `robots.txt`
   - `User-agent: *` bloğuna `Disallow: /wp-json/` satırı eklendi
+
+---
+
+## Dışarıda Yapılması Gereken (Kod Dışı)
+
+- [ ] **Google Search Console** — Domain verification + sitemap.xml gönderimi *(kritik — site henüz index'lenmemiş)*
+- [ ] **Google Business Profile** — GBP oluşturulup optimize edilmeli *(local pack için şart)*
+- [ ] **Trustpilot business profile** — 912 on-site yorum dışarıda görünür değil
+- [ ] **NTDA membership** — Rakip 24hrmobiletyres kullanıyor; güven/backlink sinyali
+- [ ] **OG görselleri** — `og-area.jpg`, `og-franchise.jpg`, `og-service.jpg`, `og-blog.jpg` (tasarımcı)
+
+---
+
+## İçerik Boşlukları (Rekabet Analizinden)
+
+- [ ] **Blog genişletme** — Hedef: 10+ makale. Önerilen konular:
+  - "How to check tyre pressure" (yüksek arama hacmi)
+  - "Mobile tyre fitting vs garage" (satın alma niyeti)
+  - "Tyre safety check London" (yerel intent)
+  - "When to replace run-flat tyres"
+  - "Best tyres for London driving"
+- [ ] **Havalimanı sayfaları genişletme** — Gatwick, Stansted, Luton (London dışı ama yüksek intent)
+- [ ] **Lastik marka hub sayfası** — `tyres/index.html` — tüm markalara hub
+- [ ] **EV lastik sayfası** — Rakiplerin hiçbirinde yok; büyük fırsat
+- [ ] **Otoyol/yol bazlı sayfalar** — M25, A406, A4, A1 (roadside callout intent)
 
 ---
 
@@ -165,16 +218,18 @@
 | 2026-04-18 (audit) | 78/100 | Başlangıç |
 | 2026-04-19 (1. oturum) | ~86/100 | +8 puan |
 | 2026-04-19 (2. oturum) | ~91/100 | +5 puan |
-| Kalan 3 madde tamamlanırsa | ~93/100 | +2 puan daha |
+| 2026-04-19 (3. oturum) | ~93/100 | +2 puan |
+| 2026-04-20 (4. oturum) | ~96/100 | +3 puan |
 
-**2. oturum skor artışının dağılımı:**
-- About founder şeması (E-E-A-T): +2
-- fonts.css async load 207 sayfa (performance): +1
-- Sitemap changefreq + robots.txt wp-json: +1
-- Emergency sayfası özgün OG görseli: +1
+**4. oturum skor artışının dağılımı:**
+- Blog hub + 3 makale (content gap kapatıldı): +1.5
+- 2 havalimanı lokasyon sayfası (local/geo intent): +0.5
+- 5 lastik marka sayfası (commercial intent): +0.5
+- ads.txt (AdSense compliance): +0.5
 
-**Kalan bekleyenler:**
-- Diğer sayfa tipleri için OG görselleri (tasarımcı gerektirir)
-- İlçe description optimizasyonu (manuel, 32 sayfa)
-- Apple Touch Icon PNG (yeni dosya gerektirir)
-- İlçe sayfaları service-specific OG açıklamaları
+**Kalan bekleyenler (kod ile):**
+- İçerik genişletme (blog, otoyol sayfaları, EV, lastik marka hub)
+- Lastik marka hub index sayfası (`tyres/index.html`)
+
+**Kod dışı bekleyenler:**
+- Google Search Console, GBP, Trustpilot, OG görselleri
