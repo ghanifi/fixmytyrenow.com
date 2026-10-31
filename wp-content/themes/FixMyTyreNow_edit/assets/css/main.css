@@ -564,6 +564,9 @@ h1.hero-h1 em { color: var(--orange); font-style: italic; }
 .footer-contact a { font-size: 14px; color: rgba(255,255,255,.6); display: flex; align-items: center; gap: 8px; transition: color .2s; }
 .footer-contact a:hover { color: var(--orange); }
 .footer-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+.footer-social { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.footer-social a { width: 36px; height: 36px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,.15); color: rgba(255,255,255,.6); transition: color .2s, border-color .2s; }
+.footer-social a:hover { color: var(--orange); border-color: var(--orange); }
 .badge {
   padding: 5px 12px; border-radius: 6px;
   border: 1px solid rgba(255,255,255,.15);
